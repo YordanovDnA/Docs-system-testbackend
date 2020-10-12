@@ -1,0 +1,83 @@
+API for DOCS office system 
+
+Paths:
+
+    - Authorization.
+    - Users.
+    - Patients.
+
+1. Authorization path
+
+The autorization path is: "/api/auth " and is taking a post HTTP request.
+The body of the request has to be an object: 
+{
+    username: "string",
+    password: "string"
+}
+
+2. Users path 
+
+The users path accepts couple of HTTP requests:
+
+    A) - GET - returns all the users in the database
+
+    B) - POST - add new user to the database. 
+        The request body has to be an object.
+        Example: {
+            gender : "men",
+            name: {
+                title: "newUser title",
+                firstName: "newUser firstName",
+                lastName: "newUser lastName,
+            }
+            ...
+        }
+
+    C) - PUT - updating a user into the database. 
+        The request body has to be an object. 
+        Example: {
+            userId: "string",
+            userUpdated: {
+                gender: "men",
+                name: {
+                    title : "anyChanges",
+                    firstName: "first name",
+                    lastName: "anyChanges",
+            }
+        }
+        }
+    
+    D) - DELETE - removing a user from the database.
+        Example: {
+            userId: "string"
+        }
+
+3. Patients path
+
+    A) - GET - returns all the patients from the database
+
+    B) - POST - add new patient to the database.
+        Example: {
+            gender: "men",
+            name: {
+                title: "Mr",
+                firstName: "PatientFirstName",
+                lastName: "PatientLastNAme"
+            }
+            ...
+        }
+
+    C) - PUT - updating patient information.
+        Example: {
+            patientId: "string",
+
+            patientUpdated: {
+                All the patient information plus the updated information
+                ...patient, name.lastName = "NewLastName"
+            }
+        }
+
+    D) - DELETE - removing a patient from the database
+        Example:{
+            patinetID: "string"
+        }
