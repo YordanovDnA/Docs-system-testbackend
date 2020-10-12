@@ -631,6 +631,8 @@ app.delete("/api/patients/:id", (req, res) => {
   }
 });
 
-app.listen(9002, () => {
+const port = process.env.PORT || 9002;
+
+app.listen(port, () => {
   console.log("Node server started on port 9002.");
 });
